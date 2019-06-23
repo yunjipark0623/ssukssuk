@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>일지 쓰기</title>
+</head>
+<body>
+<div>
+    <form method="POST" name="diary" th:action="@{'/insertDiary'}" th:object="${diary}" accept-charset="UTF-8" enctype="multipart/form-data">
+        <textarea name="content" placeholder="오늘의 쑥쑥이는?" th:text="${content}"></textarea>
+        <button type="submit" name="write">작성하기</button>
+    </form>
+</div>
+</body>
+</html>
