@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link href="https://fonts.googleapis.com/css?family=Jua|Lobster|Nanum+Gothic:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+<!-- 헤더 -->
+<div id="mainHeader">
+    <header class="header">
+        <a th:href="@{'/index'}">
+            <img src="../img/logo.png" class="logo">
+        </a>
+    </header>
+    <div class="navbar">
+        <div class="welcome">
+            <span class="user" th:text="${user}"></span>
+            <span>님 환영합니다!</span>
+        </div>
+        <div class="logout">
+            <a th:href="@{'/logout'}">
+                로그아웃
+            </a>
+        </div>
+        <div class="logout">
+            <a th:href="@{'/profile'}">
+                내 프로필
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="profile">
+    <a th:href="@{'/my'}">
+        <img src="../img/profile.png">
+    </a>
+</div>
+</body>
+</html>

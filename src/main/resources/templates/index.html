@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link href="https://fonts.googleapis.com/css?family=Jua|Lobster|Nanum+Gothic:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <div id="mainHeader">
+        <header class="header">
+            <a th:href="@{'/index'}">
+                <img src="../img/logo.png" class="logo">
+            </a>
+        </header>
+        <div class="navbar">
+            <div class="welcome">
+                <span class="user" th:text="${user}"></span>
+                <span>님 환영합니다!</span>
+            </div>
+            <div class="logout">
+                <a th:href="@{'/logout'}">
+                    로그아웃
+                </a>
+            </div>
+            <div class="logout">
+                <a th:href="@{'/profile'}">
+                    내 프로필
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <table id="mainBoard">
+            <tbody>
+            <tr class="board" th:each="item: ${boardList}">
+                <td class="id">
+                    <a th:href="@{'/content/' + ${item.getId()}}" th:text="${item.getId()}"></a>
+                </td>
+                <td class="title">
+                    <a th:href="@{'/content/' + ${item.getId()}}" th:text="${item.getTitle()}"></a>
+                </td>
+                <td class="writer" th:text="${item.getUser_id()}"></td>
+                <td class="time" th:text="${#dates.format(item.getWriteTime(), 'MM-dd HH:mm')}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="write-btn">
+            <a th:href="@{'/write'}">
+                글쓰기
+            </a>
+        </button>
+    </div>
+</body>
+</html>
